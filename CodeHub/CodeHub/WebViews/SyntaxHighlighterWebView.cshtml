@@ -1,0 +1,86 @@
+﻿@model SyntaxHighlighterModel
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name="viewport" content=" @(Model.Viewport)">
+<link rel="stylesheet" href="WebResources/styles/@(Model.Theme).css" />
+<script src="WebResources/highlight.pack.js"></script>
+<script src="WebResources/highlight-line-numbers.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+  hljs.initLineNumbersOnLoad();
+
+  window.onload = function() {
+    var elem = document.querySelector('.hljs');
+    var style = getComputedStyle(elem);
+    document.body.style.backgroundColor = style.backgroundColor;
+  }
+</script>
+<style>
+html {
+    height: 100%;
+    width: 100%;
+}
+body { 
+    margin: 0; 
+    min-height: 100%; 
+    min-width: 100%;
+    -webkit-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    font-size: @(Model.FontSize)px;
+}
+
+body > pre { 
+    margin: 0em; 
+    min-width: 100%; 
+    min-height: 100%; 
+    overflow: none;
+}
+
+body > pre * {
+    overflow: none;
+}
+
+.hljs { 
+    width: 100%;
+    min-width: 100%;
+    min-height: 100%; 
+    box-sizing: border-box; 
+    overflow: none;
+}
+
+code {
+  display: block;
+  width: 100%;
+  min-width: 100%;
+}
+
+/* for block of numbers */
+td.hljs-ln-numbers {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  text-align: center;
+  color: #ccc;
+  border-right: 1px solid #CCC;
+  vertical-align: top;
+  padding-right: 5px;
+
+  /* your custom style here */
+}
+
+/* for block of code */
+td.hljs-ln-code {
+  padding-left: 10px;
+}
+</style>
+</head>
+<body>
+    <pre><code id="code" class="@Model.Language">@Model.Content</code></pre>
+</body>
+</html> 

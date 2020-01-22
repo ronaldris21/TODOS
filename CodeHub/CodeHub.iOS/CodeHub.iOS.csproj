@@ -1,0 +1,679 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProjectGuid>{B061316A-F386-4FE2-93B7-555584234FF8}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>CodeHub.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>CodeHubiOS</AssemblyName>
+    <TargetFrameworkProfile />
+    <TargetFrameworkIdentifier>Xamarin.iOS</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v1.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchArch>x86_64</MtouchArch>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchProfiling>true</MtouchProfiling>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+    <MtouchTlsProvider>Default</MtouchTlsProvider>
+    <DeviceSpecificBuild>false</DeviceSpecificBuild>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchUseThumb>true</MtouchUseThumb>
+    <MtouchArch>ARM64</MtouchArch>
+    <MtouchDebug>true</MtouchDebug>
+    <BuildIpa>true</BuildIpa>
+    <IpaPackageName>
+    </IpaPackageName>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CodesignProvision>
+    </CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\iPhone\Ad-Hoc</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <BuildIpa>True</BuildIpa>
+    <IpaPackageName>
+    </IpaPackageName>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <CodesignProvision>Automatic:AdHoc</CodesignProvision>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchExtraArgs>--linkskip=CodeHubiOS --linkskip=CodeHub.Core --linkskip=GitHubSharp</MtouchExtraArgs>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+    <MtouchTlsProvider>Default</MtouchTlsProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\iPhone\AppStore</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <CodesignKey>iPhone Distribution: Dillon Buchanan (T39PW4C23Z)</CodesignKey>
+    <CodesignProvision>
+    </CodesignProvision>
+    <IpaPackageName>
+    </IpaPackageName>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <BuildIpa>true</BuildIpa>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchExtraArgs>--linkskip=CodeHubiOS --linkskip=CodeHub.Core --linkskip=GitHubSharp</MtouchExtraArgs>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Images\Images.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="Services\MarkdownService.cs" />
+    <Compile Include="Setup.cs" />
+    <Compile Include="Theme.cs" />
+    <Compile Include="Views\Issues\BaseIssuesView.cs" />
+    <Compile Include="Views\Issues\IssueEditView.cs" />
+    <Compile Include="Views\Issues\IssueMilestonesView.cs" />
+    <Compile Include="Views\Issues\IssuesView.cs" />
+    <Compile Include="Views\Issues\IssueView.cs" />
+    <Compile Include="Views\Issues\MyIssuesView.cs" />
+    <Compile Include="Views\NotificationsView.cs" />
+    <Compile Include="Views\PullRequests\PullRequestsView.cs" />
+    <Compile Include="Views\PullRequests\PullRequestView.cs" />
+    <Compile Include="Views\Source\ChangesetView.cs" />
+    <None Include="Info.plist" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Source\ChangesetsView.cs" />
+    <Compile Include="Views\PullRequests\PullRequestFilesView.cs" />
+    <Compile Include="Views\Issues\IssueAddView.cs" />
+    <Compile Include="Views\Issues\IssueAssignedToView.cs" />
+    <Compile Include="Views\Source\CommitsView.cs" />
+    <Compile Include="Views\PullRequests\PullRequestCommitsView.cs" />
+    <Compile Include="Services\PushNotificationsService.cs" />
+    <Compile Include="Views\Source\EditSourceView.cs" />
+    <Compile Include="Services\FeaturesService.cs" />
+    <Compile Include="UrlRouterProvider.cs" />
+    <None Include="Entitlements.plist" />
+    <Compile Include="ViewControllers\MarkdownComposerViewController.cs" />
+    <None Include="packages.config" />
+    <Compile Include="Services\AlertDialogService.cs" />
+    <Compile Include="ViewControllers\Composer.cs" />
+    <Compile Include="ViewControllers\FilterViewController.cs" />
+    <Compile Include="ViewControllers\MultipleChoiceViewController.cs" />
+    <Compile Include="ViewControllers\ViewModelCollectionDrivenDialogViewController.cs" />
+    <Compile Include="ViewControllers\ViewModelDrivenDialogViewController.cs" />
+    <Compile Include="Views\AddRemoveView.cs" />
+    <Compile Include="Views\MenuSectionView.cs" />
+    <Compile Include="Views\MilestoneView.cs" />
+    <Compile Include="Views\ProgressBarView.cs" />
+    <Compile Include="Views\ScrollingToolbarView.cs" />
+    <Compile Include="Views\UILabelWithLinks.cs" />
+    <Compile Include="XCallback\XCallbackQuery.cs" />
+    <Compile Include="TouchViewPresenter.cs" />
+    <Compile Include="ViewControllers\DialogViewController.cs" />
+    <InterfaceDefinition Include="Launch.storyboard" />
+    <Compile Include="Views\ImageAndTitleHeaderView.cs" />
+    <Compile Include="Views\SlideUpTitleView.cs" />
+    <Compile Include="Utilities\Hud.cs" />
+    <Compile Include="Utilities\UIImageExtensions.cs" />
+    <Compile Include="Utilities\ViewControllerExtensions.cs" />
+    <Compile Include="Utilities\Graphics.cs" />
+    <Compile Include="Utilities\EasyLayout.cs" />
+    <Compile Include="OcticonExtensions.cs" />
+    <Compile Include="Views\ProfileButton.cs" />
+    <Compile Include="TableViewCells\IssueCellView.cs" />
+    <Compile Include="TableViewCells\IssueCellView.designer.cs">
+      <DependentUpon>IssueCellView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TableViewCells\NewsCellView.cs" />
+    <Compile Include="TableViewCells\NewsCellView.designer.cs">
+      <DependentUpon>NewsCellView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TableViewCells\RepositoryCellView.cs" />
+    <Compile Include="TableViewCells\RepositoryCellView.designer.cs">
+      <DependentUpon>RepositoryCellView.cs</DependentUpon>
+    </Compile>
+    <InterfaceDefinition Include="TableViewCells\IssueCellView.xib" />
+    <InterfaceDefinition Include="TableViewCells\NewsCellView.xib" />
+    <InterfaceDefinition Include="TableViewCells\RepositoryCellView.xib" />
+    <Compile Include="TableViewCells\MilestoneTableViewCell.cs" />
+    <Compile Include="TableViewCells\GistCellView.cs" />
+    <Compile Include="TableViewCells\GistCellView.designer.cs" />
+    <InterfaceDefinition Include="TableViewCells\GistCellView.xib" />
+    <Compile Include="Utilities\UIImageViewExtensions.cs" />
+    <Compile Include="TableViewCells\PullRequestCellView.cs" />
+    <Compile Include="TableViewCells\PullRequestCellView.designer.cs" />
+    <InterfaceDefinition Include="TableViewCells\PullRequestCellView.xib" />
+    <Compile Include="TableViewCells\CommitCellView.cs" />
+    <InterfaceDefinition Include="TableViewCells\CommitCellView.xib" />
+    <Compile Include="TableViewCells\CommitCellView.designer.cs" />
+    <Compile Include="ViewControllers\Walkthrough\AboutViewController.cs" />
+    <Compile Include="ViewControllers\Walkthrough\AboutViewController.designer.cs" />
+    <InterfaceDefinition Include="ViewControllers\Walkthrough\AboutViewController.xib" />
+    <Compile Include="ViewControllers\Walkthrough\CardPageViewController.cs" />
+    <Compile Include="ViewControllers\Walkthrough\CardPageViewController.designer.cs" />
+    <InterfaceDefinition Include="ViewControllers\Walkthrough\CardPageViewController.xib" />
+    <Compile Include="ViewControllers\Walkthrough\FeedbackViewController.cs" />
+    <Compile Include="ViewControllers\Walkthrough\FeedbackViewController.designer.cs" />
+    <InterfaceDefinition Include="ViewControllers\Walkthrough\FeedbackViewController.xib" />
+    <Compile Include="ViewControllers\Walkthrough\GoProViewController.cs" />
+    <Compile Include="ViewControllers\Walkthrough\GoProViewController.designer.cs" />
+    <InterfaceDefinition Include="ViewControllers\Walkthrough\GoProViewController.xib" />
+    <InterfaceDefinition Include="ViewControllers\Walkthrough\PromoteViewController.xib" />
+    <Compile Include="ViewControllers\Walkthrough\WelcomePageViewController.cs" />
+    <Compile Include="ViewControllers\Walkthrough\WelcomeViewController.cs" />
+    <Compile Include="ViewControllers\Walkthrough\WelcomeViewController.designer.cs" />
+    <InterfaceDefinition Include="ViewControllers\Walkthrough\WelcomeViewController.xib" />
+    <Compile Include="ViewControllers\BaseViewController.cs" />
+    <Compile Include="Utilities\UIKitExtensions.cs" />
+    <Compile Include="ViewControllers\ThemedNavigationController.cs" />
+    <Compile Include="ViewControllers\WebBrowserViewController.cs" />
+    <Compile Include="ViewControllers\Walkthrough\PromoteViewController.cs" />
+    <Compile Include="ViewControllers\Walkthrough\PromoteViewController.designer.cs" />
+    <Compile Include="Services\InAppPurchaseService.cs" />
+    <Compile Include="Utilities\UIWindowExtensions.cs" />
+    <Compile Include="Utilities\NetworkActivity.cs" />
+    <InterfaceDefinition Include="ViewControllers\Repositories\PrivateRepositoryViewController.xib" />
+    <Compile Include="ViewControllers\Repositories\PrivateRepositoryViewController.cs" />
+    <Compile Include="ViewControllers\Repositories\PrivateRepositoryViewController.designer.cs">
+      <DependentUpon>PrivateRepositoryViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\TableViewController.cs" />
+    <Compile Include="DialogElements\Element.cs" />
+    <Compile Include="DialogElements\RootElement.cs" />
+    <Compile Include="DialogElements\Section.cs" />
+    <Compile Include="DialogElements\BooleanElement.cs" />
+    <Compile Include="DialogElements\StringElement.cs" />
+    <Compile Include="DialogElements\CommitElement.cs" />
+    <Compile Include="DialogElements\ChangesetElement.cs" />
+    <Compile Include="DialogElements\MilestoneElement.cs" />
+    <Compile Include="DialogElements\LabelElement.cs" />
+    <Compile Include="DialogElements\SplitButtonElement.cs" />
+    <Compile Include="DialogElements\PullRequestElement.cs" />
+    <Compile Include="DialogElements\SplitViewElement.cs" />
+    <Compile Include="DialogElements\CommentElement.cs" />
+    <Compile Include="DialogElements\IssueElement.cs" />
+    <Compile Include="DialogElements\UserElement.cs" />
+    <Compile Include="DialogElements\NewsFeedElement.cs" />
+    <Compile Include="DialogElements\EntryElement.cs" />
+    <Compile Include="DialogElements\IElementSizing.cs" />
+    <Compile Include="DialogElements\MultilinedElement.cs" />
+    <Compile Include="DialogElements\OwnerDrawnElement.cs" />
+    <Compile Include="DialogElements\LoadMoreElement.cs" />
+    <Compile Include="DialogElements\PaginateElement.cs" />
+    <Compile Include="Transitions\SlideDownTransition.cs" />
+    <Compile Include="ViewControllers\Repositories\LanguagesViewController.cs" />
+    <Compile Include="Views\TrendingTitleButton.cs" />
+    <Compile Include="ViewControllers\Accounts\NewAccountViewController.cs" />
+    <Compile Include="ViewControllers\BaseWebViewController.cs" />
+    <Compile Include="ViewControllers\Accounts\OAuthLoginViewController.cs" />
+    <Compile Include="ViewControllers\Accounts\AccountsViewController.cs" />
+    <InterfaceDefinition Include="ViewControllers\Accounts\AddAccountView.xib" />
+    <Compile Include="ViewControllers\Accounts\AddAccountViewController.designer.cs" />
+    <Compile Include="ViewControllers\Accounts\AddAccountViewController.cs" />
+    <Compile Include="XCallback\XCallbackProvider.cs" />
+    <Compile Include="TableViewCells\MultilinedCellView.cs" />
+    <Compile Include="TableViewCells\MultilinedCellView.designer.cs" />
+    <InterfaceDefinition Include="TableViewCells\MultilinedCellView.xib" />
+    <Compile Include="ViewControllers\Walkthrough\OrgViewController.cs" />
+    <Compile Include="ViewControllers\Walkthrough\OrgViewController.designer.cs" />
+    <InterfaceDefinition Include="ViewControllers\Walkthrough\OrgViewController.xib" />
+    <Compile Include="LinkerPleaseInclude.cs" />
+    <Compile Include="DialogElements\HtmlElement.cs" />
+    <Compile Include="Views\BlurredAlertView.cs" />
+    <Compile Include="Views\EmptyListView.cs" />
+    <Compile Include="ViewControllers\Organizations\OrganizationsViewController.cs" />
+    <Compile Include="ViewControllers\Organizations\OrganizationViewController.cs" />
+    <Compile Include="ViewControllers\Application\MenuViewController.cs" />
+    <Compile Include="ViewControllers\Application\StartupViewController.cs" />
+    <Compile Include="Views\LoadingIndicatorView.cs" />
+    <Compile Include="ViewControllers\Gists\GistFileViewController.cs" />
+    <Compile Include="DialogElements\MenuElement.cs" />
+    <Compile Include="DialogElements\ExpandingInputElement.cs" />
+    <Compile Include="DialogElements\DummyInputElement.cs" />
+    <Compile Include="Views\ExtendedUITextView.cs" />
+    <Compile Include="ViewControllers\Gists\GistFileModifyViewController.cs" />
+    <None Include="WebResources\highlight-LICENSE" />
+    <Compile Include="ViewControllers\Users\UserViewController.cs" />
+    <Compile Include="AkavacheSqliteLinkerOverride.cs" />
+    <Compile Include="TableViewSources\RepositoryTableViewSource.cs" />
+    <Compile Include="TableViewSources\ReactiveTableViewSource.cs" />
+    <Compile Include="ViewControllers\Search\ExploreViewController.cs" />
+    <Compile Include="ViewControllers\Repositories\RepositoryViewController.cs" />
+    <Compile Include="ViewControllers\Repositories\RepositoriesViewController.cs" />
+    <Compile Include="ViewControllers\Repositories\TrendingRepositoriesViewController.cs" />
+    <Compile Include="Services\NetworkActivityService.cs" />
+    <Compile Include="TableViewSources\UserTableViewSource.cs" />
+    <Compile Include="TableViewCells\UserTableViewCell.cs" />
+    <Compile Include="ViewControllers\Users\UsersViewController.cs" />
+    <Compile Include="TableViewSources\GistTableViewSource.cs" />
+    <Compile Include="ViewControllers\Gists\GistsViewController.cs" />
+    <Compile Include="ViewControllers\Gists\GistViewController.cs" />
+    <Compile Include="ViewControllers\Gists\GistCreateViewController.cs" />
+    <Compile Include="ViewControllers\Gists\GistEditViewController.cs" />
+    <Compile Include="TableViewSources\DialogTableViewSource.cs" />
+    <Compile Include="ViewControllers\Events\BaseEventsViewController.cs" />
+    <Compile Include="ViewControllers\Events\NewsViewController.cs" />
+    <Compile Include="ViewControllers\Events\OrganizationEventsViewController.cs" />
+    <Compile Include="ViewControllers\Events\RepositoryEventsViewController.cs" />
+    <Compile Include="ViewControllers\Events\UserEventsViewController.cs" />
+    <Compile Include="Views\Issues\IssueLabelsView.cs" />
+    <Compile Include="Views\RetryListView.cs" />
+    <Compile Include="ViewControllers\Application\SupportViewController.cs" />
+    <Compile Include="TableViewCells\FeedbackCellView.cs" />
+    <Compile Include="TableViewCells\FeedbackCellView.designer.cs">
+      <DependentUpon>FeedbackCellView.cs</DependentUpon>
+    </Compile>
+    <InterfaceDefinition Include="TableViewCells\FeedbackCellView.xib" />
+    <Compile Include="TableViewSources\FeedbackTableViewSource.cs" />
+    <Compile Include="ViewControllers\Application\FeedbackViewController.cs" />
+    <Compile Include="ViewControllers\Application\EnterpriseSupportViewController.cs" />
+    <Compile Include="ViewControllers\BaseDialogViewController.cs" />
+    <Compile Include="ViewControllers\Organizations\TeamsViewController.cs" />
+    <Compile Include="ViewControllers\Application\FeedbackComposerViewController.cs" />
+    <Compile Include="Views\MarkdownAccessoryView.cs" />
+    <Compile Include="Views\ButtonAccessoryView.cs" />
+    <Compile Include="ViewControllers\Search\RepositoryExploreViewController.cs" />
+    <Compile Include="ViewControllers\Search\UserExploreViewController.cs" />
+    <Compile Include="ViewControllers\Source\BranchesAndTagsViewController.cs" />
+    <Compile Include="ViewControllers\Source\BranchesViewController.cs" />
+    <Compile Include="Views\SourceTitleView.cs" />
+    <Compile Include="ViewControllers\Source\TagsViewController.cs" />
+    <Compile Include="ViewControllers\Source\SourceTreeViewController.cs" />
+    <Compile Include="ViewControllers\Source\FileSourceViewController.cs" />
+    <Compile Include="Utilities\ShaType.cs" />
+    <Compile Include="ViewControllers\PullRequests\PullRequestDiffViewController.cs" />
+    <Compile Include="ViewControllers\Source\CommitDiffViewController.cs" />
+    <None Include="WebResources\highlight-line-numbers-LICENSE" />
+    <Compile Include="ViewControllers\Filters\IssueMilestonesFilterViewController.cs" />
+    <Compile Include="ViewControllers\Filters\IssuesFilterViewController.cs" />
+    <Compile Include="ViewControllers\Filters\MyIssuesFilterViewController.cs" />
+    <Compile Include="ViewControllers\Repositories\ReadmeViewController.cs" />
+    <Compile Include="ViewControllers\Settings\SettingsViewController.cs" />
+    <Compile Include="ViewControllers\Settings\SyntaxHighlighterViewController.cs" />
+    <Compile Include="ViewControllers\Settings\DefaultStartupViewController.cs" />
+    <Compile Include="ViewControllers\Application\UpgradeViewController.cs" />
+    <Compile Include="ViewControllers\Source\AddSourceViewController.cs" />
+    <Compile Include="ViewControllers\MessageComposerViewController.cs" />
+    <Compile Include="Utilities\ReactiveCommandExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="MonoTouch.Slideout">
+      <HintPath>..\packages\MonoTouch.SlideoutNavigation.1.0.1\lib\Xamarin.iOS10\MonoTouch.Slideout.dll</HintPath>
+    </Reference>
+    <Reference Include="SDWebImage">
+      <HintPath>..\packages\Xamarin.SDWebImage.3.7.5\lib\Xamarin.iOS\SDWebImage.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Interfaces">
+      <HintPath>..\packages\Rx-Interfaces.2.2.5\lib\portable-windows8+net45+wp8\System.Reactive.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Core">
+      <HintPath>..\packages\Rx-Core.2.2.5\lib\portable-windows8+net45+wp8\System.Reactive.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Linq">
+      <HintPath>..\packages\Rx-Linq.2.2.5\lib\portable-windows8+net45+wp8\System.Reactive.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.PlatformServices">
+      <HintPath>..\packages\Rx-PlatformServices.2.2.5\lib\portable-windows8+net45+wp8\System.Reactive.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Splat">
+      <HintPath>..\packages\Splat.1.6.2\lib\Xamarin.iOS10\Splat.dll</HintPath>
+    </Reference>
+    <Reference Include="GitHubSharp">
+      <HintPath>..\packages\GitHubClient.1.0.15\lib\portable45-net45+win8+wpa81\GitHubSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.TTTAttributedLabel">
+      <HintPath>lib\Xamarin.TTTAttributedLabel.dll</HintPath>
+    </Reference>
+    <Reference Include="PCLStorage">
+      <HintPath>..\packages\PCLStorage.1.0.2\lib\portable-Xamarin.iOS+Xamarin.Mac\PCLStorage.dll</HintPath>
+    </Reference>
+    <Reference Include="PCLStorage.Abstractions">
+      <HintPath>..\packages\PCLStorage.1.0.2\lib\portable-Xamarin.iOS+Xamarin.Mac\PCLStorage.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Akavache">
+      <HintPath>..\packages\akavache.core.5.0.0\lib\Xamarin.iOS10\Akavache.dll</HintPath>
+    </Reference>
+    <Reference Include="Akavache.Sqlite3">
+      <HintPath>..\packages\akavache.sqlite3.5.0.0\lib\Portable-Net45+Win8+WP8+Wpa81\Akavache.Sqlite3.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Platform">
+      <HintPath>..\packages\MvvmCross.Platform.4.4.0\lib\Xamarin.iOS10\MvvmCross.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Platform.iOS">
+      <HintPath>..\packages\MvvmCross.Platform.4.4.0\lib\Xamarin.iOS10\MvvmCross.Platform.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Core">
+      <HintPath>..\packages\MvvmCross.Core.4.4.0\lib\Xamarin.iOS10\MvvmCross.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.iOS">
+      <HintPath>..\packages\MvvmCross.Core.4.4.0\lib\Xamarin.iOS10\MvvmCross.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Binding">
+      <HintPath>..\packages\MvvmCross.Binding.4.4.0\lib\Xamarin.iOS10\MvvmCross.Binding.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Binding.iOS">
+      <HintPath>..\packages\MvvmCross.Binding.4.4.0\lib\Xamarin.iOS10\MvvmCross.Binding.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Localization">
+      <HintPath>..\packages\MvvmCross.Binding.4.4.0\lib\Xamarin.iOS10\MvvmCross.Localization.dll</HintPath>
+    </Reference>
+    <Reference Include="Humanizer">
+      <HintPath>..\packages\Humanizer.Core.2.2.0\lib\netstandard1.0\Humanizer.dll</HintPath>
+    </Reference>
+    <Reference Include="ReactiveUI">
+      <HintPath>..\packages\reactiveui-core.7.4.0\lib\Xamarin.iOS10\ReactiveUI.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\netstandard1.3\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="BTProgressHUD">
+      <HintPath>..\packages\BTProgressHUD.1.2.0.6\lib\Xamarin.iOS10\BTProgressHUD.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.core">
+      <HintPath>..\packages\SQLitePCLRaw.core.1.1.9\lib\Xamarin.iOS10\SQLitePCLRaw.core.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.lib.e_sqlite3">
+      <HintPath>..\packages\SQLitePCLRaw.lib.e_sqlite3.ios_unified.static.1.1.9\lib\Xamarin.iOS10\SQLitePCLRaw.lib.e_sqlite3.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.provider.internal">
+      <HintPath>..\packages\SQLitePCLRaw.provider.internal.ios_unified.1.1.9\lib\Xamarin.iOS10\SQLitePCLRaw.provider.internal.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_e_sqlite3">
+      <HintPath>..\packages\SQLitePCLRaw.bundle_e_sqlite3.1.1.9\lib\Xamarin.iOS10\SQLitePCLRaw.batteries_e_sqlite3.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_v2">
+      <HintPath>..\packages\SQLitePCLRaw.bundle_e_sqlite3.1.1.9\lib\Xamarin.iOS10\SQLitePCLRaw.batteries_v2.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Settings.Abstractions">
+      <HintPath>..\packages\Xam.Plugins.Settings.3.1.1\lib\Xamarin.iOS10\Plugin.Settings.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Settings">
+      <HintPath>..\packages\Xam.Plugins.Settings.3.1.1\lib\Xamarin.iOS10\Plugin.Settings.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="Octokit">
+      <HintPath>..\packages\Octokit.0.29.0\lib\netstandard1.1\Octokit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AppCenter">
+      <HintPath>..\packages\Microsoft.AppCenter.1.5.0\lib\Xamarin.iOS10\Microsoft.AppCenter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AppCenter.iOS.Bindings">
+      <HintPath>..\packages\Microsoft.AppCenter.1.5.0\lib\Xamarin.iOS10\Microsoft.AppCenter.iOS.Bindings.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AppCenter.Analytics">
+      <HintPath>..\packages\Microsoft.AppCenter.Analytics.1.5.0\lib\Xamarin.iOS10\Microsoft.AppCenter.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AppCenter.Analytics.iOS.Bindings">
+      <HintPath>..\packages\Microsoft.AppCenter.Analytics.1.5.0\lib\Xamarin.iOS10\Microsoft.AppCenter.Analytics.iOS.Bindings.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AppCenter.Crashes">
+      <HintPath>..\packages\Microsoft.AppCenter.Crashes.1.5.0\lib\Xamarin.iOS10\Microsoft.AppCenter.Crashes.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AppCenter.Crashes.iOS.Bindings">
+      <HintPath>..\packages\Microsoft.AppCenter.Crashes.1.5.0\lib\Xamarin.iOS10\Microsoft.AppCenter.Crashes.iOS.Bindings.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Permissions.Abstractions">
+      <HintPath>..\packages\Plugin.Permissions.2.2.1\lib\Xamarin.iOS10\Plugin.Permissions.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Permissions">
+      <HintPath>..\packages\Plugin.Permissions.2.2.1\lib\Xamarin.iOS10\Plugin.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Media.Abstractions">
+      <HintPath>..\packages\Xam.Plugin.Media.3.1.3\lib\Xamarin.iOS10\Plugin.Media.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Media">
+      <HintPath>..\packages\Xam.Plugin.Media.3.1.3\lib\Xamarin.iOS10\Plugin.Media.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\Buttons\black_button%402x.png" />
+    <Content Include="Images\Buttons\black_button.png" />
+    <BundleResource Include="Resources\iTunesArtwork.png" />
+    <BundleResource Include="Resources\iTunesArtwork%402x.png" />
+    <BundleResource Include="Images\Web\back.png" />
+    <BundleResource Include="Images\Web\back%402x.png" />
+    <BundleResource Include="Images\Web\forward.png" />
+    <BundleResource Include="Images\Web\forward%402x.png" />
+    <BundleResource Include="Images\Buttons\back%402x.png" />
+    <BundleResource Include="Images\Buttons\back.png" />
+    <BundleResource Include="Images\Buttons\three_lines.png" />
+    <BundleResource Include="Images\Buttons\three_lines%402x.png" />
+    <BundleResource Include="Images\Buttons\sort%402x.png" />
+    <BundleResource Include="Images\Buttons\sort.png" />
+    <BundleResource Include="Images\Logos\dotcom-mascot.png" />
+    <BundleResource Include="Images\Logos\enterprise-mascot.png" />
+    <BundleResource Include="Images\down_chevron.png" />
+    <BundleResource Include="Images\down_chevron%402x.png" />
+    <Content Include="WebResources\marked.js" />
+    <BundleResource Include="Images\Buttons\check%402x.png" />
+    <BundleResource Include="Images\Buttons\check.png" />
+    <Content Include="WebResources\highlight.pack.js" />
+    <BundleResource Include="..\CodeHub\Resources\octicons.ttf">
+      <Link>Resources\octicons.ttf</Link>
+    </BundleResource>
+    <BundleResource Include="Resources\Briefcase.png" />
+    <BundleResource Include="Resources\Feedback.png" />
+    <BundleResource Include="Resources\Heart.png" />
+    <BundleResource Include="Resources\Organizations.png" />
+    <BundleResource Include="Resources\Rocket.png" />
+    <BundleResource Include="Resources\CodeHubRound.png" />
+    <BundleResource Include="Resources\CodeHubLaunch.png" />
+    <Content Include="WebResources\styles\agate.css" />
+    <Content Include="WebResources\styles\androidstudio.css" />
+    <Content Include="WebResources\styles\arduino-light.css" />
+    <Content Include="WebResources\styles\arta.css" />
+    <Content Include="WebResources\styles\ascetic.css" />
+    <Content Include="WebResources\styles\atelier-cave-dark.css" />
+    <Content Include="WebResources\styles\atelier-cave-light.css" />
+    <Content Include="WebResources\styles\atelier-dune-dark.css" />
+    <Content Include="WebResources\styles\atelier-dune-light.css" />
+    <Content Include="WebResources\styles\atelier-estuary-dark.css" />
+    <Content Include="WebResources\styles\atelier-estuary-light.css" />
+    <Content Include="WebResources\styles\atelier-forest-dark.css" />
+    <Content Include="WebResources\styles\atelier-forest-light.css" />
+    <Content Include="WebResources\styles\atelier-heath-dark.css" />
+    <Content Include="WebResources\styles\atelier-heath-light.css" />
+    <Content Include="WebResources\styles\atelier-lakeside-dark.css" />
+    <Content Include="WebResources\styles\atelier-lakeside-light.css" />
+    <Content Include="WebResources\styles\atelier-plateau-dark.css" />
+    <Content Include="WebResources\styles\atelier-plateau-light.css" />
+    <Content Include="WebResources\styles\atelier-savanna-dark.css" />
+    <Content Include="WebResources\styles\atelier-savanna-light.css" />
+    <Content Include="WebResources\styles\atelier-seaside-dark.css" />
+    <Content Include="WebResources\styles\atelier-seaside-light.css" />
+    <Content Include="WebResources\styles\atelier-sulphurpool-dark.css" />
+    <Content Include="WebResources\styles\atelier-sulphurpool-light.css" />
+    <Content Include="WebResources\styles\atom-one-dark.css" />
+    <Content Include="WebResources\styles\atom-one-light.css" />
+    <Content Include="WebResources\styles\brown-paper.css" />
+    <Content Include="WebResources\styles\brown-papersq.png" />
+    <Content Include="WebResources\styles\codepen-embed.css" />
+    <Content Include="WebResources\styles\color-brewer.css" />
+    <Content Include="WebResources\styles\darcula.css" />
+    <Content Include="WebResources\styles\dark.css" />
+    <Content Include="WebResources\styles\darkula.css" />
+    <Content Include="WebResources\styles\default.css" />
+    <Content Include="WebResources\styles\docco.css" />
+    <Content Include="WebResources\styles\dracula.css" />
+    <Content Include="WebResources\styles\far.css" />
+    <Content Include="WebResources\styles\foundation.css" />
+    <Content Include="WebResources\styles\github-gist.css" />
+    <Content Include="WebResources\styles\github.css" />
+    <Content Include="WebResources\styles\googlecode.css" />
+    <Content Include="WebResources\styles\grayscale.css" />
+    <Content Include="WebResources\styles\gruvbox-dark.css" />
+    <Content Include="WebResources\styles\gruvbox-light.css" />
+    <Content Include="WebResources\styles\hopscotch.css" />
+    <Content Include="WebResources\styles\hybrid.css" />
+    <Content Include="WebResources\styles\idea.css" />
+    <Content Include="WebResources\styles\ir-black.css" />
+    <Content Include="WebResources\styles\kimbie.dark.css" />
+    <Content Include="WebResources\styles\kimbie.light.css" />
+    <Content Include="WebResources\styles\magula.css" />
+    <Content Include="WebResources\styles\mono-blue.css" />
+    <Content Include="WebResources\styles\monokai-sublime.css" />
+    <Content Include="WebResources\styles\monokai.css" />
+    <Content Include="WebResources\styles\obsidian.css" />
+    <Content Include="WebResources\styles\ocean.css" />
+    <Content Include="WebResources\styles\paraiso-dark.css" />
+    <Content Include="WebResources\styles\paraiso-light.css" />
+    <Content Include="WebResources\styles\pojoaque.css" />
+    <Content Include="WebResources\styles\pojoaque.jpg" />
+    <Content Include="WebResources\styles\purebasic.css" />
+    <Content Include="WebResources\styles\qtcreator_dark.css" />
+    <Content Include="WebResources\styles\qtcreator_light.css" />
+    <Content Include="WebResources\styles\railscasts.css" />
+    <Content Include="WebResources\styles\rainbow.css" />
+    <Content Include="WebResources\styles\routeros.css" />
+    <Content Include="WebResources\styles\school-book.css" />
+    <Content Include="WebResources\styles\school-book.png" />
+    <Content Include="WebResources\styles\solarized-dark.css" />
+    <Content Include="WebResources\styles\solarized-light.css" />
+    <Content Include="WebResources\styles\sunburst.css" />
+    <Content Include="WebResources\styles\tomorrow-night-blue.css" />
+    <Content Include="WebResources\styles\tomorrow-night-bright.css" />
+    <Content Include="WebResources\styles\tomorrow-night-eighties.css" />
+    <Content Include="WebResources\styles\tomorrow-night.css" />
+    <Content Include="WebResources\styles\tomorrow.css" />
+    <Content Include="WebResources\styles\vs.css" />
+    <Content Include="WebResources\styles\vs2015.css" />
+    <Content Include="WebResources\styles\xcode.css" />
+    <Content Include="WebResources\styles\xt256.css" />
+    <Content Include="WebResources\styles\zenburn.css" />
+    <Content Include="WebResources\highlight-line-numbers.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <ITunesArtwork Include="iTunesArtwork" />
+    <ITunesArtwork Include="iTunesArtwork%402x" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup />
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-60%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-72.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-72%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-76.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-76%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-Small.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-Small%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-Small-50.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-Small-50%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-Small-40.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-Small-40%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-Small%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-Small-40%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-60%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-167.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\UnknownUser.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\UnknownUser.imageset\login_user_unknown.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\UnknownUser.imageset\login_user_unknown%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\Avatar.imageset\avatar.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\Avatar.imageset\avatar%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\Avatar.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\appstore.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CodeHub.Core\CodeHub.Core.csproj">
+      <Project>{B7970173-9022-466B-B57A-7AB1E1F3145F}</Project>
+      <Name>CodeHub.Core</Name>
+      <IsAppExtension>false</IsAppExtension>
+      <IsWatchApp>false</IsWatchApp>
+    </ProjectReference>
+    <ProjectReference Include="..\CodeHub\CodeHub.csproj">
+      <Project>{B01CF3C6-51DF-4CAE-A07C-E4BC907833D7}</Project>
+      <Name>CodeHub</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ViewControllers\Settings\SyntaxHighlightExample" />
+  </ItemGroup>
+  <Import Project="..\packages\SQLitePCL.raw_basic.0.8.6\build\Xamarin.iOS10\SQLitePCL.raw_basic.targets" Condition="Exists('..\packages\SQLitePCL.raw_basic.0.8.6\build\Xamarin.iOS10\SQLitePCL.raw_basic.targets')" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Import Project="..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets')" />
+</Project>
